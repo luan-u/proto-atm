@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS atm_users(
+name VARCHAR (50) NOT NULL,
+cpf CHAR(11) PRIMARY KEY,
+b_date DATE NOT NULL,
+ADD CONSTRAINT non_empty_name CHECK (name <> ''),
+ADD CONSTRAINT cpf_exact_length CHECK (char_length(cpf) = 11),
+);
+
+
+CREATE TABLE IF NOT EXISTS atm_accounts(
+cpf CHAR(11),
+id_account SERIAL,
+type CHAR(1) NOT NULL,
+balance INT NOT NULL,
+PRIMARY KEY (id_account),
+FOREIGN KEY (cpf) REFERENCES atm_users (cpf)
+ON UPDATE CASCADE
+ON DELETE CASCADE,
+ADD CONSTRAINT account_type CHECK (type = 'C' or type = 'P')
+ADD CONSTRAINT positive_balance CHECK (balance >= 0)
+);
+
+
+insert into atm_users (name, cpf, b_date) VALUES ('Kevin Flynn', '00011122233', '1984-02-28');
+insert into atm_users (name, cpf, b_date) VALUES ('Sam Flynn', '12345678900', '1961-02-28');
+insert into atm_users (name, cpf, b_date) VALUES ('Maximus Decimus Meridius', '22255588813', '2000-05-19');
+
+
+insert into atm_accounts (cpf, type, balance) values ('22255588813', 'P', 160);
+insert into atm_accounts (cpf, type, balance) values ('00011122233', 'P', 25000);
+insert into atm_accounts (cpf, type, balance) values ('12345678900', 'C', 515);
+insert into atm_accounts (cpf, type, balance) values ('00011122233', 'C', 15);
+
