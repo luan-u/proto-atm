@@ -15,9 +15,9 @@ module.exports = function(app){
 const UserController = require('../controllers/user-controller');
 
 module.exports = function(app){
-  app.get('/users', UserController.get);
-  app.post('/users', UserController.post);
-  app.get('/users/:cpf', UserController.getByCpf);
-  app.put('/users/:cpf', UserController.put);
-  app.delete('/users/:cpf', UserController.delete);
+    app.get('/users', UserController.get);
+    app.post('/users', UserController.post);
+    app.get('/users/:cpf', UserController.getByCpf);
+    app.put('/users/:cpf', UserController.put);
+    app.delete('/users/:cpf', UserController.delete);
 }
