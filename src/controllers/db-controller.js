@@ -8,7 +8,7 @@ async function connect(){
         // postgres://usuario:senha@servidor:porta/banco
         // pw: r34WG7VcdfJvN4WplbWYHEk
         // TODO: move credentials to a external file
-        connectionString: 'postgres://luan:r34WG7VcdfJvN4WplbWYHEk@localhost:5432/test_atm'
+        connectionString: 'postgres://atm:r34WG7VcdfJvN4WplbWYHEk@localhost:5432/atm_db'
     });
     
     // conn test
