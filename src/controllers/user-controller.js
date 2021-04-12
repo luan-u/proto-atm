@@ -37,8 +37,11 @@ exports.post = async function (request, response){
         else if (err.constraint === "non_empty_name"){
             response.status(400).json({error: 'Name must not be an empty string'});
         }
-        else if (err.constraint === "cpf_exact_length" || err.code === "22001"){
+        else if (err.constraint === "cpf_exact_length"){
             response.status(400).json({error: 'CPF must be informed with exactly 11 digits'});
+        }
+        else if (err.code === "22001"){
+            response.status(400).json({error: 'One or more parameters are bigger than maximum size allowed'});
         }
         else if (err.code === "22007" || err.code === "22008"){
             response.status(400).json({error: 'Failed to parse date. Please use date format YYYY-MM-DD'});
@@ -60,8 +63,11 @@ exports.put = async function(request, response){
         if (err.constraint === "non_empty_name"){
             response.status(400).json({error: 'Name must not be an empty string'});
         }
-        else if (err.constraint === "cpf_exact_length" || err.code === "22001"){
+        else if (err.constraint === "cpf_exact_length"){
             response.status(400).json({error: 'CPF must be informed with exactly 11 digits'});
+        }
+        else if (err.code === "22001"){
+            response.status(400).json({error: 'One or more parameters are bigger than maximum size allowed'});
         }
         else if (err.code === "22007" || err.code === "22008"){
             response.status(400).json({error: 'Failed to parse date. Please use date format YYYY-MM-DD'});
