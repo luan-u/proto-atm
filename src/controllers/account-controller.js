@@ -143,7 +143,7 @@ exports.withdraw = async function (request, response){
             else response.status(500).json(err);
         }
     }
-    else response.status(400).json(currencyDistribution);
+    else response.status(400).json({error: "Not possible to allocate bank notes for requested amount"});
 }
 
 // not really required per specs but may be nice to put this here
