@@ -115,7 +115,7 @@ exports.deposit = async function (request, response){
             if (results.rowCount !== 0){
                 response.sendStatus(200);
             }
-            else response.status(404).json({error: 'No user found with provided CPF'});
+            else response.status(404).json({error: 'No user found with provided id'});
         }
     }
     catch (err){
@@ -134,7 +134,7 @@ exports.withdraw = async function (request, response){
             if (results.rowCount !== 0){
                 response.status(200).json(currencyDistribution);
             }
-            else response.status(404).json({error: 'No user found with provided CPF'});
+            else response.status(404).json({error: 'No user found with provided id'});
         }
         catch (err){
             if (err.constraint === "positive_balance"){
