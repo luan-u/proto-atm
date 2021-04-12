@@ -22,6 +22,7 @@ Please check `endpoints.md` for details.
 
 ## TODO
 - [x] Implement initial working version of API
+- [x] Document API installation and usage
 - [ ] Implement automated tests
 - [ ] Ensure safety on concurrent database operations
 - [ ] Get rid of stray TODOs across the codespace
