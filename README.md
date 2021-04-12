@@ -20,10 +20,19 @@ After this, it is just executing requests.
 
 Please check `endpoints.md` for details.
 
+## Automatic endpoint testing
+
+1. `npm install mocha -g --save-dev`
+2. `npm install chai request --save-dev`
+3. Run `mocha` on project root directory
+
+Before testing, ensure the database is populated and node server is running.
+
 ## TODO
 - [x] Implement initial working version of API
 - [x] Document API installation and usage
-- [ ] Implement automated tests
+- [x] Implement automated tests
 - [ ] Ensure safety on concurrent database operations
+- [ ] Increase test coverage
 - [ ] Get rid of stray TODOs across the codespace
 - [ ] Add meaningful code comments
